@@ -29,4 +29,14 @@ ggplot(NEIBaltTypeYearly, aes(x=factor(year), y=Emissions, fill=type)) +
   ggtitle(expression("PM"[2.5]*paste(" emissions in Baltimore ",
                                      "City by various source types", sep="")))
 
+# Another way: (Without grids)
+# ggplot(NEIBaltTypeYearly, aes(x=factor(year), fill=type, y=Emissions)) +
+#  geom_bar(stat="identity", position="dodge") +
+#  geom_bar(stat="identity") +
+#  facet_grid(. ~ type) +
+#  xlab("Year") +
+#  ylab(expression("Total PM"[2.5]*" emission")) +
+#  ggtitle(expression("PM"[2.5]*paste(" emissions in Baltimore ",
+#                                     "City by various source types", sep="")))
+
 dev.off()

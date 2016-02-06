@@ -18,9 +18,17 @@ NEIVBatlLAYearly <- rbind(NEIVBaltYearly, NEIVLAYearly)
 
 png("./figure/plot6.png")
 
+# Using grids
+# ggplot(NEIVBatlLAYearly, aes(x=factor(year), y=Emissions, fill=City)) +
+#  geom_bar(stat="identity") +
+#  facet_grid(City  ~ ., scales="free") +
+#  xlab("Year") +
+#  ylab(expression("Total PM"[2.5]*" emissions")) +
+#  ggtitle("Emissions from Motor Vehicle - Baltimore Vs. Los Angeles")
+
+# Without grids (prefered: comparisons can be made using the same scale on y)
 ggplot(NEIVBatlLAYearly, aes(x=factor(year), y=Emissions, fill=City)) +
-  geom_bar(stat="identity") +
-  facet_grid(City  ~ ., scales="free") +
+  geom_bar(stat="identity", position="dodge") +
   xlab("Year") +
   ylab(expression("Total PM"[2.5]*" emissions")) +
   ggtitle("Emissions from Motor Vehicle - Baltimore Vs. Los Angeles")
