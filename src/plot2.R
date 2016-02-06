@@ -10,7 +10,8 @@ NEIBaltYearly = aggregate(Emissions ~ year, data = NEIBalt, FUN = sum)
 
 png("./figure/plot2.png")
 
-with(NEIBaltYearly, plot(year, log10(Emissions), type="l", xlab="Year", ylab="Emissions (log scale)"))
-title("Total of Emissions per Year for Baltimore City")
+barplot(NEIBaltYearly$Emissions, names.arg=NEIBaltYearly$year,
+        xlab="Year", ylab=expression("PM"[2.5]*" emissions"), main="Total of Emissions per Year for Baltimore"       
+)
 
 dev.off()

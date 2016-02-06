@@ -3,6 +3,7 @@
 # Across the United States, how have emissions from coal combustion-related sources changed from 1999–2008?
 
 source("./src/initialise.R")
+library(ggplot2)
 
 # Find coal combustion-related sources
 is_cc <- grepl("Fuel Comb.*Coal", SCC$EI.Sector)
@@ -19,6 +20,6 @@ ggplot(NEICCTYearly, aes(x=factor(year), y=Emissions)) +
   geom_bar(stat="identity") +
   xlab("Year") +
   ylab(expression("Total PM"[2.5]*" emissions")) +
-  ggtitle("Total of emissions from coal combustion-related sources")
+  ggtitle("Total of Emissions from Coal Combustion-related Sources")
 
 dev.off()

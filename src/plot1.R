@@ -10,7 +10,13 @@ NEIYearly = aggregate(Emissions ~ year, data = NEI, FUN = sum)
 
 png("./figure/plot1.png")
 
-with(NEIYearly, plot(year, log10(Emissions), type="l", xlab="Year", ylab="Emissions (log scale)"))
-title("Total of Emissions per Year")
+# Way 1: Using scattered plot
+# with(NEIYearly, plot(year, log10(Emissions), type="l", xlab="Year", ylab="Emissions (log scale)"))
+# title("Total of Emissions per Year")
+
+# Way 2: Using barplot
+barplot(NEIYearly$Emissions, names.arg=NEIYearly$year,
+  xlab="Year", ylab=expression("PM"[2.5]*" emissions"), main="Total of Emissions per Year"       
+)
 
 dev.off()

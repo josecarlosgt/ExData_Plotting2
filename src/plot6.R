@@ -5,6 +5,7 @@
 # Which city has seen greater changes over time in motor vehicle emissions?
 
 source("./src/initialise.R")
+library(ggplot2)
 
 NEIVBalt = NEI[(NEI$fips=="24510") & (NEI$type=="ON-ROAD"),]
 NEIVLA = NEI[(NEI$fips=="06037") & (NEI$type=="ON-ROAD"),]
@@ -22,6 +23,6 @@ ggplot(NEIVBatlLAYearly, aes(x=factor(year), y=Emissions, fill=City)) +
   facet_grid(City  ~ ., scales="free") +
   xlab("Year") +
   ylab(expression("Total PM"[2.5]*" emissions")) +
-  ggtitle("Emissions from motor vehicle - Baltimore Vs. Los Angeles")
+  ggtitle("Emissions from Motor Vehicle - Baltimore Vs. Los Angeles")
 
 dev.off()
