@@ -16,10 +16,10 @@ NEICCTYearly = aggregate(Emissions ~ year, data = NEICCC, FUN = sum)
 
 png("./figure/plot4.png")
 
-ggplot(NEICCTYearly, aes(x=factor(year), y=Emissions)) +
+ggplot(NEICCTYearly, aes(x=factor(year), y=Emissions/1000)) +
   geom_bar(stat="identity") +
   xlab("Year") +
-  ylab(expression("Total PM"[2.5]*" emissions")) +
+  ylab(expression("Total PM"[2.5]*" emissions (x1000)")) +
   ggtitle("Total of Emissions from Coal Combustion-related Sources")
 
 dev.off()

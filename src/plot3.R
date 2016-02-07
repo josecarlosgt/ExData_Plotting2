@@ -23,11 +23,12 @@ png("./figure/plot3.png")
 # Nicer way: (Using grids)
 ggplot(NEIBaltTypeYearly, aes(x=factor(year), y=Emissions, fill=type)) +
   geom_bar(stat="identity") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   facet_grid(. ~ type) +
   xlab("Year") +
   ylab(expression("Total PM"[2.5]*" emission")) +
-  ggtitle(expression("PM"[2.5]*paste(" emissions in Baltimore ",
-                                     "City by various source types", sep="")))
+  ggtitle(expression("PM"[2.5]*paste(" Emissions in Baltimore ",
+                                     "City by Various Source Types", sep="")))
 
 # Another way: (Without grids)
 # ggplot(NEIBaltTypeYearly, aes(x=factor(year), fill=type, y=Emissions)) +
@@ -37,6 +38,6 @@ ggplot(NEIBaltTypeYearly, aes(x=factor(year), y=Emissions, fill=type)) +
 #  xlab("Year") +
 #  ylab(expression("Total PM"[2.5]*" emission")) +
 #  ggtitle(expression("PM"[2.5]*paste(" emissions in Baltimore ",
-#                                     "City by various source types", sep="")))
+#                                     "City by Various Source Types", sep="")))
 
 dev.off()

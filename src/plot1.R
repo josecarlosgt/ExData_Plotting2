@@ -15,8 +15,8 @@ png("./figure/plot1.png")
 # title("Total of Emissions per Year")
 
 # Way 2: Using barplot
-barplot(NEIYearly$Emissions, names.arg=NEIYearly$year,
-  xlab="Year", ylab=expression("PM"[2.5]*" emissions"), main="Total of Emissions per Year"       
+barplot(NEIYearly$Emissions / 1000, names.arg=NEIYearly$year,
+  xlab="Year", ylab=expression("PM"[2.5]*" emissions (x1000)"), main="Total of Emissions per Year"       
 )
 
 dev.off()
